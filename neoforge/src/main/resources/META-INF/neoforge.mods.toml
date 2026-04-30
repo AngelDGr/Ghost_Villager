@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "CC0-1.0"
 
 [[mods]]
 modId = "ghost_villager"
 version = "${version}"
 displayName = "Ghost Villager"
-authors = "Me!"
+authors = "Tenebris Mors, Flashh"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Adds rare ghost villagers to villages!
 '''
 #logoFile = ""
 

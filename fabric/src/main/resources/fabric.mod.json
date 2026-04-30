@@ -3,13 +3,12 @@
   "id": "ghost_villager",
   "version": "${version}",
   "name": "Ghost Villager",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Adds rare ghost villagers to villages!",
   "authors": [
-    "Tenebris Mors"
+    "Tenebris Mors, Flashh"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/members/flashh/projects"
   },
   "license": "CC0-1.0",
   "icon": "assets/ghost_villager/icon.png",
