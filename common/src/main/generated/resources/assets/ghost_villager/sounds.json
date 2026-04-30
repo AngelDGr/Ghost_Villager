@@ -1,0 +1,34 @@
+{
+  "entity.ghost_villager.idle": {
+    "sounds": [
+      "ghost_villager:entity/ghost_villager/ghost_villager_idle1",
+      "ghost_villager:entity/ghost_villager/ghost_villager_idle2",
+      "ghost_villager:entity/ghost_villager/ghost_villager_idle3"
+    ],
+    "subtitle": "subtitles.ghost_villager.entity.ghost_villager.idle"
+  },
+  "entity.ghost_villager.no": {
+    "sounds": [
+      "ghost_villager:entity/ghost_villager/ghost_villager_no1",
+      "ghost_villager:entity/ghost_villager/ghost_villager_no2",
+      "ghost_villager:entity/ghost_villager/ghost_villager_no3"
+    ],
+    "subtitle": "subtitles.ghost_villager.entity.ghost_villager.no"
+  },
+  "entity.ghost_villager.poof": {
+    "sounds": [
+      "ghost_villager:entity/ghost_villager/ghost_villager_poof1",
+      "ghost_villager:entity/ghost_villager/ghost_villager_poof2",
+      "ghost_villager:entity/ghost_villager/ghost_villager_poof3"
+    ],
+    "subtitle": "subtitles.ghost_villager.entity.ghost_villager.poof"
+  },
+  "entity.ghost_villager.yes": {
+    "sounds": [
+      "ghost_villager:entity/ghost_villager/ghost_villager_yes1",
+      "ghost_villager:entity/ghost_villager/ghost_villager_yes2",
+      "ghost_villager:entity/ghost_villager/ghost_villager_yes3"
+    ],
+    "subtitle": "subtitles.ghost_villager.entity.ghost_villager.yes"
+  }
+}

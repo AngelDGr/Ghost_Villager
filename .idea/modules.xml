@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/ghost_villager.common.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/ghost_villager.fabric.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.iml" filepath="$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.main.iml" filepath="$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/neoforge/ghost_villager.neoforge.test.iml" />
+    </modules>
+  </component>
+</project>

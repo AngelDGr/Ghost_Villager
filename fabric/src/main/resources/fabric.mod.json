@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "ghost_villager",
+  "version": "${version}",
+  "name": "Ghost Villager",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Tenebris Mors"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/ghost_villager/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "mors.ghost_villager.fabric.GhostVillager_MainFabric"
+    ],
+    "client": [
+      "mors.ghost_villager.fabric.GhostVillager_ClientFabric"
+    ]
+  },
+  "mixins": [
+    "ghost_villager.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "architectury": ">=13.0.8",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
