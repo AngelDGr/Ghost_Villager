@@ -13,7 +13,6 @@ public class GhostVillager_Entities {
             ()-> EntityType.Builder.of(GhostVillagerEntity::new, MobCategory.MISC)
                     //Hitbox
                     .sized(0.6F, 2.45F)
-                    .eyeHeight(2.00F)
                     .clientTrackingRange(10)
                     .build("ghost_villager"));
 

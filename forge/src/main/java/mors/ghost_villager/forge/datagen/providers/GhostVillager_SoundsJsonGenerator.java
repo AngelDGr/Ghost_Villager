@@ -1,13 +1,13 @@
-package mors.ghost_villager.neoforge.datagen.providers;
+package mors.ghost_villager.forge.datagen.providers;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import mors.ghost_villager.GhostVillager_Main;
 import mors.ghost_villager.registry.GhostVillager_Sounds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.common.data.SoundDefinition;
-import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.SoundDefinition;
+import net.minecraftforge.common.data.SoundDefinitionsProvider;
 
 public class GhostVillager_SoundsJsonGenerator extends SoundDefinitionsProvider {
 

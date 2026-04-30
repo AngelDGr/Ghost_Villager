@@ -60,7 +60,7 @@ public class BellBlockEntityMixin {
                                 if (ghost != null) {
                                     ghost.moveTo(x, y, z, 0.0F, 0.0F);
 
-                                    ghost.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(spawnPos), MobSpawnType.EVENT, null);
+                                    ghost.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(spawnPos), MobSpawnType.EVENT, null, null);
 
                                     serverLevel.addFreshEntity(ghost);
                                     serverLevel.sendParticles(ParticleTypes.FLASH,

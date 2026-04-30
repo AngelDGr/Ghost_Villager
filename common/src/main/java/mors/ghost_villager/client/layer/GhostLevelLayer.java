@@ -23,18 +23,18 @@ public class GhostLevelLayer<T extends GhostVillagerEntity, M extends GhostVilla
         if (livingEntity.isInvisible()) return;
 
         RenderType badgeRenderType = switch (livingEntity.getVillagerLevel()) {
-            case 2 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID,
+            case 2 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(new ResourceLocation(GhostVillager_Main.MOD_ID,
                     "textures/entity/ghost_villager/profession_level/iron.png"));
-            case 3 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID,
+            case 3 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(new ResourceLocation(GhostVillager_Main.MOD_ID,
                     "textures/entity/ghost_villager/profession_level/gold.png"));
-            case 4 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID,
+            case 4 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(new ResourceLocation(GhostVillager_Main.MOD_ID,
                     "textures/entity/ghost_villager/profession_level/emerald.png"));
-            case 5 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID,
+            case 5 -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(new ResourceLocation(GhostVillager_Main.MOD_ID,
                     "textures/entity/ghost_villager/profession_level/diamond.png"));
-            default -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID,
+            default -> GhostVillagerRenderer.GHOST_VILLAGER_RENDERER.apply(new ResourceLocation(GhostVillager_Main.MOD_ID,
                     "textures/entity/ghost_villager/profession_level/stone.png"));
         };
 
-        this.getParentModel().renderToBuffer(poseStack, bufferSource.getBuffer(badgeRenderType), packedLight, OverlayTexture.NO_OVERLAY);
+        this.getParentModel().renderToBuffer(poseStack, bufferSource.getBuffer(badgeRenderType), packedLight, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
     }
 }

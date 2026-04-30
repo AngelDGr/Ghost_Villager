@@ -19,6 +19,6 @@ public class GhostVillager_Sounds {
     public static void init(){}
 
     public static RegistrySupplier<SoundEvent> register(final String name) {
-        return GhostVillager_Registries.SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID, name)));
+        return GhostVillager_Registries.SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(GhostVillager_Main.MOD_ID, name)));
     }
 }

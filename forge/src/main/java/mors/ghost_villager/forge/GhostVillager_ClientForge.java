@@ -1,21 +1,19 @@
-package mors.ghost_villager.neoforge;
+package mors.ghost_villager.forge;
 
 import mors.ghost_villager.GhostVillager_Main;
 import mors.ghost_villager.client.GhostVillagerModel;
 import mors.ghost_villager.client.GhostVillagerRenderer;
 import mors.ghost_villager.registry.GhostVillager_Entities;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-@EventBusSubscriber(modid = GhostVillager_Main.MOD_ID, value = Dist.CLIENT)
-@Mod(value = GhostVillager_Main.MOD_ID, dist = Dist.CLIENT)
-public class GhostVillager_ClientNeoForge {
+@Mod.EventBusSubscriber(modid = GhostVillager_Main.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class GhostVillager_ClientForge {
 
-    public GhostVillager_ClientNeoForge(final IEventBus modEventBus){
+    public GhostVillager_ClientForge(final IEventBus modEventBus){
     }
 
     @SubscribeEvent

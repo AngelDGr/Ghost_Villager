@@ -1,4 +1,4 @@
-package mors.ghost_villager.neoforge.datagen.providers;
+package mors.ghost_villager.forge.datagen.providers;
 
 import mors.ghost_villager.GhostVillager_Main;
 import mors.ghost_villager.GhostVillager_Registries;
@@ -10,7 +10,7 @@ import net.minecraft.world.item.BannerPatternItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.minecraftforge.common.data.LanguageProvider;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

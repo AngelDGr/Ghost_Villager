@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("FieldCanBeLocal, unused")
 @Environment(EnvType.CLIENT)
 public class GhostVillagerModel<T extends GhostVillagerEntity> extends AgeableHierarchicalModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID, "ghost_villager"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(GhostVillager_Main.MOD_ID, "ghost_villager"), "main");
     private final ModelPart root;
     private final ModelPart ghost_villager;
     private final ModelPart body;
@@ -104,11 +104,20 @@ public class GhostVillagerModel<T extends GhostVillagerEntity> extends AgeableHi
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, float r, float g, float b, float a) {
         int alpha = (int)(0.55f * 255.0f);
         int rgb = 0xededed; // dimmer than white
         int color = (alpha << 24) | rgb;
-        super.renderToBuffer(poseStack, vertexConsumer, i, j, color);
+        int newA = (color >> 24) & 0xFF;
+        int newR = (color >> 16) & 0xFF;
+        int newG = (color >> 8)  & 0xFF;
+        int newB = (color)       & 0xFF;
+        float fr = newR / 255.0f;
+        float fg = newG / 255.0f;
+        float fb = newB / 255.0f;
+        float fa = newA / 255.0f;
+
+        super.renderToBuffer(poseStack, vertexConsumer, i, j, fr, fg, fb, fa);
     }
 
     @Override

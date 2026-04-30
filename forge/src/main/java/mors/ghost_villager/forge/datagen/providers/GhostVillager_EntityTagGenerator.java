@@ -1,4 +1,4 @@
-package mors.ghost_villager.neoforge.datagen.providers;
+package mors.ghost_villager.forge.datagen.providers;
 
 import mors.ghost_villager.GhostVillager_Main;
 import mors.ghost_villager.registry.GhostVillager_Entities;
@@ -6,7 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.tags.EntityTypeTags;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,9 +20,6 @@ public class GhostVillager_EntityTagGenerator extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(final HolderLookup.@NotNull Provider arg) {
-        this.tag(EntityTypeTags.UNDEAD)
-                .add(GhostVillager_Entities.GHOST_VILLAGER.get());
-
         this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE)
                 .add(GhostVillager_Entities.GHOST_VILLAGER.get());
     }

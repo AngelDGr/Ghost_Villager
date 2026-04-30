@@ -12,7 +12,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
@@ -28,7 +27,6 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
@@ -58,13 +56,13 @@ public class GhostVillagerEntity extends AbstractVillager {
     private boolean increaseProfessionLevelOnUpdate;
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(MUST_DIE, false);
-        builder.define(MUST_APPEAR, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(MUST_DIE, false);
+        this.entityData.define(MUST_APPEAR, false);
 
-        builder.define(VILLAGER_LEVEL, 1);
-        builder.define(VILLAGER_XP, 0);
+        this.entityData.define(VILLAGER_LEVEL, 1);
+        this.entityData.define(VILLAGER_XP, 0);
     }
 
     public boolean mustDie() {
@@ -120,8 +118,8 @@ public class GhostVillagerEntity extends AbstractVillager {
     }
 
     @Override
-    public @NotNull SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData) {
-        var finalize = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData);
+    public @NotNull SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+        var finalize = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
         this.setMustAppear(true);
         //To avoid rendering on the first tick
         this.setInvisible(true);
@@ -396,5 +394,15 @@ public class GhostVillagerEntity extends AbstractVillager {
     @Override
     public boolean removeWhenFarAway(double d) {
         return false;
+    }
+
+    @Override
+    public @NotNull MobType getMobType() {
+        return MobType.UNDEAD;
+    }
+
+    @Override
+    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
+        return this.isBaby() ? 1.0F : 2.00F;
     }
 }

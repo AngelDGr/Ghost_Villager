@@ -1,13 +1,13 @@
-package mors.ghost_villager.neoforge.datagen.providers;
+package mors.ghost_villager.forge.datagen.providers;
 
 import mors.ghost_villager.GhostVillager_Main;
 import mors.ghost_villager.GhostVillager_Registries;
 import mors.ghost_villager.registry.GhostVillager_Items;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
 

@@ -3,9 +3,6 @@ package mors.ghost_villager.registry;
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.Entity;
@@ -15,15 +12,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.item.enchantment.providers.EnchantmentProvider;
-import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
-
-import java.util.Optional;
 
 public class GhostVillager_VillagerTrades {
 
@@ -42,8 +34,8 @@ public class GhostVillager_VillagerTrades {
                     //4–6 emerald blocks → Efficiency V book
                     //4–6 emerald blocks → Protection IV book
                     2, new VillagerTrades.ItemListing[]{
-                            new EnchantBookForEmeraldBlocks(30, 4, 0.2f, UniformInt.of(4, 6), Enchantments.EFFICIENCY, 5),
-                            new EnchantBookForEmeraldBlocks(30, 4, 0.2f, UniformInt.of(4, 6), Enchantments.PROTECTION, 4)
+                            new EnchantBookForEmeraldBlocks(30, 4, 0.2f, UniformInt.of(4, 6), Enchantments.BLOCK_EFFICIENCY, 5),
+                            new EnchantBookForEmeraldBlocks(30, 4, 0.2f, UniformInt.of(4, 6), Enchantments.ALL_DAMAGE_PROTECTION, 4)
                     },
                     //    Level 3 – Journeyman
                     //6–8 emerald blocks → Sharpness V book
@@ -68,7 +60,7 @@ public class GhostVillager_VillagerTrades {
                     }
             ));
 
-    @SuppressWarnings({"OptionalUsedAsFieldOrParameterType", "unused"})
+    @SuppressWarnings({"unused"})
     static class ItemsForRandomEmeraldBlocks implements VillagerTrades.ItemListing {
         private final ItemStack itemStack;
         private final UniformInt emeraldCost;
@@ -76,7 +68,6 @@ public class GhostVillager_VillagerTrades {
         private final int maxUses;
         private final int villagerXp;
         private final float priceMultiplier;
-        private final Optional<ResourceKey<EnchantmentProvider>> enchantmentProvider;
 
         public ItemsForRandomEmeraldBlocks(Item item, UniformInt emeraldCost, UniformInt count, int maxUses, int villagerXp) {
             this(new ItemStack(item), emeraldCost, count, maxUses, villagerXp);
@@ -94,35 +85,23 @@ public class GhostVillager_VillagerTrades {
             this(new ItemStack(item), emeraldCost, count, maxUses, villagerXp, priceMultiplier);
         }
 
-        public ItemsForRandomEmeraldBlocks(Item item, UniformInt emeraldCost, UniformInt count, int maxUses, int villagerXp, float priceMultiplier,
-                                           ResourceKey<EnchantmentProvider> enchantmentProvider) {
-            this(new ItemStack(item), emeraldCost, count, maxUses, villagerXp, priceMultiplier, Optional.of(enchantmentProvider));
-        }
-
         public ItemsForRandomEmeraldBlocks(ItemStack itemStack, UniformInt emeraldCost, UniformInt count, int maxUses, int villagerXp,
                                            float priceMultiplier) {
-            this(itemStack, emeraldCost, count, maxUses, villagerXp, priceMultiplier, Optional.empty());
-        }
-
-        public ItemsForRandomEmeraldBlocks(ItemStack itemStack, UniformInt emeraldCost, UniformInt count, int maxUses, int villagerXp,
-                                           float priceMultiplier, Optional<ResourceKey<EnchantmentProvider>> enchantmentProvider) {
             this.itemStack = itemStack;
             this.emeraldCost = emeraldCost;
             this.stackCount = count;
             this.maxUses = maxUses;
             this.villagerXp = villagerXp;
             this.priceMultiplier = priceMultiplier;
-            this.enchantmentProvider = enchantmentProvider;
         }
 
         public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
             ItemStack itemStack = this.itemStack.copy();
             itemStack.setCount(this.stackCount.sample(randomSource));
             Level level = entity.level();
-            this.enchantmentProvider.ifPresent((resourceKey) -> EnchantmentHelper.enchantItemFromProvider(itemStack, level.registryAccess(), resourceKey, level.getCurrentDifficultyAt(entity.blockPosition()), randomSource));
 
 
-            return new MerchantOffer(new ItemCost(Items.EMERALD_BLOCK, this.emeraldCost.sample(randomSource)), itemStack, this.maxUses, this.villagerXp, this.priceMultiplier);
+            return new MerchantOffer(new ItemStack(Items.EMERALD_BLOCK, this.emeraldCost.sample(randomSource)), itemStack, this.maxUses, this.villagerXp, this.priceMultiplier);
         }
     }
 
@@ -134,11 +113,11 @@ public class GhostVillager_VillagerTrades {
         private final int villagerXp;
         private final int maxUses;
         private final float priceMultiplier;
-        private final ResourceKey<Enchantment> enchantment;
+        private final Enchantment enchantment;
         private final UniformInt emeraldAmount;
         private final int enchantmentLevel;
 
-        public EnchantBookForEmeraldBlocks(int villagerXp, int maxUses, float priceMultiplier, UniformInt emeraldAmount, ResourceKey<Enchantment> enchantment, int enchantmentLevel) {
+        public EnchantBookForEmeraldBlocks(int villagerXp, int maxUses, float priceMultiplier, UniformInt emeraldAmount, Enchantment enchantment, int enchantmentLevel) {
             this.villagerXp = villagerXp;
             this.maxUses = maxUses;
             this.priceMultiplier = priceMultiplier;
@@ -148,18 +127,15 @@ public class GhostVillager_VillagerTrades {
         }
 
         public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
-            Optional<Holder.Reference<Enchantment>> enchantmentHolder = entity.level().registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolder(enchantment);
             ItemStack itemStack;
-            if (enchantmentHolder.isPresent()) {
-                Holder<Enchantment> holder = enchantmentHolder.get();
-                itemStack = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(holder, this.enchantmentLevel));
-
+            if (enchantment!=null) {
+                itemStack = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(enchantment, this.enchantmentLevel));
             } else {
                 itemStack = new ItemStack(Items.BOOK);
             }
 
-            return new MerchantOffer(new ItemCost(Items.EMERALD_BLOCK, this.emeraldAmount.sample(randomSource)),
-                    Optional.of(new ItemCost(Items.BOOK)), itemStack, this.maxUses, this.villagerXp, this.priceMultiplier);
+            return new MerchantOffer(new ItemStack(Items.EMERALD_BLOCK, this.emeraldAmount.sample(randomSource)),
+                    new ItemStack(Items.BOOK), itemStack, this.maxUses, this.villagerXp, this.priceMultiplier);
         }
     }
 }

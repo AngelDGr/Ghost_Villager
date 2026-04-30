@@ -2,8 +2,6 @@ package mors.ghost_villager;
 
 import com.mojang.logging.LogUtils;
 import mors.ghost_villager.registry.*;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 public final class GhostVillager_Main {

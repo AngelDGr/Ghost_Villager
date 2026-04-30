@@ -1,38 +1,35 @@
 modLoader = "javafml"
-loaderVersion = "[4,)"
+loaderVersion = "[47,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "CC0-1.0"
 
 [[mods]]
 modId = "ghost_villager"
 version = "${version}"
 displayName = "Ghost Villager"
-authors = "Me!"
+authors = "Tenebris Mors, Flashh"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Adds rare ghost villagers to villages!
 '''
 #logoFile = ""
 
 [[dependencies.ghost_villager]]
-modId = "neoforge"
-type = "required"
-versionRange = "[21.1,)"
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.ghost_villager]]
 modId = "minecraft"
-type = "required"
-versionRange = "[1.21.1,)"
+mandatory = true
+versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.ghost_villager]]
 modId = "architectury"
-type = "required"
-versionRange = "[13.0.8,)"
+mandatory = true
+versionRange = "[9.2.14,)"
 ordering = "AFTER"
 side = "BOTH"
-
-[[mixins]]
-config = "ghost_villager.mixins.json"

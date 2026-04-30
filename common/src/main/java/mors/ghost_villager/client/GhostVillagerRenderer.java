@@ -52,6 +52,6 @@ public class GhostVillagerRenderer extends MobRenderer<GhostVillagerEntity, Ghos
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(GhostVillagerEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath(GhostVillager_Main.MOD_ID, "textures/entity/ghost_villager/ghost_villager.png");
+        return new ResourceLocation(GhostVillager_Main.MOD_ID, "textures/entity/ghost_villager/ghost_villager.png");
     }
 }
